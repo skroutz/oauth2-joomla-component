@@ -1,0 +1,114 @@
+Joomla v.1.5+ Skroutz Easy component
+====================================
+
+## English
+
+### Requirements
+
+ - [Joomla! v.1.5](http://www.joomla.org)
+ - [VirtueMart 2.0.6](http://virtuemart.net)
+
+### Installation instructions
+
+1. Install Joomla! and VirtueMart
+2. Login to the 'Administration' and install the 'Component'
+    - Select 'Install / Uninstall' from the 'Extensions' menu
+    - Click 'Choose file' and select the extension (`com_skroutzeasy.zip`) from your HDD
+    - Upload the file using 'Upload File & Install'
+
+![Installing OAuth2 Joomla Component][oauth2-joomla-component-install]
+
+3. Configure the 'Component'
+    - Select the 'Skroutz Easy' component from the 'Component' menu
+    - Click the 'Parameters' from the toolbar
+    - Add the `client_id` in the 'Client ID' field
+    - Add the `client_secret` in the 'Client Secret' field
+    - Add the `redirect_uri` (callback) in the 'Redirect URI' field (optional)
+      This field can be left empty. It will be calculated automatically.
+
+![Configuring OAuth2 Joomla Component][oauth2-joomla-component-configure]
+
+4. Add extra fields and update mappings (optional)
+    - Some fields like (IRS office, Taxpayer Identification Number, etc.) are
+      not installed by default in a VirtueMart installation.
+    - If you have to provide invoices you need to manually add these fields.
+    - Select the 'VirtueMart' component from the 'Component' menu
+    - Choose 'Configuration' and then 'Shopper Fields' from the left side menu
+    - Press 'New' to add a new field
+    - Provide the 'Field name'
+      This name should much with the ones preconfigured in the component.
+    - Provide the 'Field title' that will be visible to visitors
+    - Position the fields accordingly for you registration forms
+    - Make sure the fields are published
+
+![Adding new fields for OAuth2 Joomla Component][oauth2-joomla-component-newfield]
+
+![Editing fields of OAuth2 Joomla Component][oauth2-joomla-component-newfield-edit]
+
+5. Further customization / development (optional)
+    - In case your Joomla installation is highly customized or you
+      have renamed the default columns you might need to edit
+      `components/com_skroutzeasy/controller.php` in order to fix the mappings.
+    - Edit the mapUserData() function and change the mappings
+      between between the JSON and the `data` array.
+    - No other changes should be necessary but feel freely to modify
+      the code to suit your needs. Please report any bugs you find.
+
+## Greek
+
+### Απαιτήσεις
+
+ - [Joomla! v.1.5](http://www.joomla.org)
+ - [VirtueMart 2.0.6](http://virtuemart.net)
+
+### Οδηγίες εγκατάστασης
+
+1. Εγκαταστήστε το Joomla! και το VirtueMart
+2. Συνδεθείτε στο 'Administration' περιβάλλον και εγκαταστήστε το 'Component'
+    - Επιλέξτε 'Install / Uninstall' από το μενού 'Extensions'
+    - Επιλέξτε 'Choose file' και μετά διαλέξτε το extension (`com_skroutzeasy.zip`) από τον σκληρό δίσκο
+    - Εγκαταστήστε το αρχείο επιλέγοντας 'Upload File & Install'
+
+![Installing OAuth2 Joomla Component][oauth2-joomla-component-install]
+
+3. Παραμετροποιήστε το 'Component'
+    - Επιλέξτε το 'Skroutz Easy' component από το μενού 'Component'
+    - Διαλέξτε τα 'Parameters' από τη μπάρα εργαλείων
+    - Προσθέστε το `client_id` στο πεδίο 'Client ID'
+    - Προσθέστε το `client_secret` στο πεδίο 'Client Secret'
+    - Προσθέστε το `redirect_uri` (callback) στο πεδίο 'Redirect URI' (προεραιτικό)
+      Αυτό το πεδίο μπορεί να παραμείνει και κενό. Υπολογίζεται αυτόματα.
+
+![Configuring OAuth2 Joomla Component][oauth2-joomla-component-configure]
+
+4. Προσθέστε extra πεδία και ενημερώστε τις αντιστοιχίες (προεραιτικό)
+    - Μερικά πεδία όπως (ΔΟΥ, ΑΦΜ, κτλ.) δεν υπάρχουν στην αρχική εγκατάσταση του VirtueMart.
+    - Αν θέλετε να μπορείτε να δώσετε παραστατικά θα πρέπει να προσθέσετε αυτά τα πεδία.
+    - Επιλέξτε το 'VirtueMart' component από το μενού 'Component'
+    - Επιλέγτε 'Configuration' και έπειτα 'Shopper Fields' από το μενού στα αριστερά
+    - Πατήστε 'New' για να βάλετε ένα νέο πεδίο
+    - Πληκτρολογήστε το όνομα του πεδίου στο 'Field name'
+      Αυτό το όνομα πρέπει να μοιάζει με αυτά που είναι ρυθμισμένα στο component.
+    - Πληκτρολογήστε τον τίτλο του πεδίου στο 'Field title' που θα είναι ορατός από τους χρήστες
+    - Τοποθετήστε τα πεδία κατάλληλα στη φόρμα εγγραφής
+    - Βεβαιωθείτε ότι τα πεδία είναι δημοσιευμένα (published)
+
+![Adding new fields for OAuth2 Joomla Component][oauth2-joomla-component-newfield]
+
+![Editing fields of OAuth2 Joomla Component][oauth2-joomla-component-newfield-edit]
+
+5. Περαιτέρω ρυθμίσεις / ανάπτυξη (προεραιτικό)
+    - Στην περίπτωση που η εγκατάσταση του Joomla είναι εξαιρετικά προσαρμοσμένη
+      ή έχετε αλλάξει τα προεπιλεγμένα ονόματα στα πεδία ίσως χρειαστεί να αλλάξετε
+      το αρχείο `components/com_skroutzeasy/controller.php` για να διορθώσετε τις
+      αντιστοιχίες.
+    - Αλλάξτε το function mapUserData() για να διορθώσετε τις αντιστοιχίες μεταξύ
+      του JSON και του πίνακα δεδομένων (`data` array).
+    - Δεν θα πρέπει να χρειάζονται άλλες αλλαγές στον κώδικα αλλά είστε ελεύθεροι
+      να προσαρμόσετε τον κώδικα στα μέτρα και στις ανάγκες σας. Παρακαλούμε να
+      μας αναφέρεται οτιδήποτε σφάλματα ανακαλύψετε.
+
+[oauth2-joomla-component-install]: /skroutz/oauth2-joomla-component/raw/master/doc/oauth2-joomla-component-install.png "Installing OAuth2 Joomla component"
+[oauth2-joomla-component-configure]: /skroutz/oauth2-joomla-component/raw/master/doc/oauth2-joomla-component-configure.png "Configuring OAuth2 Joomla component"
+[oauth2-joomla-component-newfield]: /skroutz/oauth2-joomla-component/raw/master/doc/oauth2-joomla-component-newfield.png "Adding new field for OAuth2 Joomla component"
+[oauth2-joomla-component-newfield-edit]: /skroutz/oauth2-joomla-component/raw/master/doc/oauth2-joomla-component-newfield-edit.png "Editing fields of OAuth2 Joomla component"

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5">
+	<!-- Name of the Component -->
+	<name>Skroutz Easy</name>
+
+	<!-- Name of the Author -->
+	<author>Skroutz.gr</author>
+
+	<!-- Author's email address -->
+	<authorEmail>dev@skroutz.gr</authorEmail>
+
+	<!-- Author's website -->
+	<authorUrl>http://www.skroutz.gr</authorUrl>
+
+	<!-- Description of what the component does -->
+	<description>Faster checkouts with Skroutz Easy</description>
+
+	<!-- Component version number, recorded in the components table -->
+	<version>1.0.0</version>
+
+	<!-- Version Date of the Component -->
+	<!-- Original creation date. Recommended: YYYY-MM-DD -->
+	<creationDate>April 2012</creationDate>
+
+	<!-- Copyright information -->
+	<copyright>Copyright (c) 2012 Skroutz.gr. All rights reserved.</copyright>
+
+	<!-- License information -->
+	<license>MIT - http://www.opensource.org/licenses/MIT</license>
+
+	<!--
+	<languages folder="languages">
+		<language tag="en-GB">en-GB.com_skroutzeasy.ini</language>
+		<language tag="el-GR">el-GR.com_skroutzeasy.ini</language>
+	</languages>
+	-->
+
+	<params>
+		<param name="client_id" type="text" default="" label="Client ID" description="PARAMSKROUTZEASYCLIENTID" />
+		<param name="client_secret" type="text" default="" label="Client Secret" description="PARAMSKROUTZEASYCLIENTSECRET" />
+		<param name="redirect_uri" type="text" default="" label="Redirect URI" description="PARAMSKROUTZEASYREDIRECTURI" />
+
+		<param name="company_field" type="text" default="company" label="Company field" description="PARAMSKROUTZEASYCOMPANYFIELD" />
+		<param name="profession_field" type="text" default="profession" label="Profession field" description="PARAMSKROUTZEASYPROFESSIONFIELD" />
+		<param name="afm_field" type="text" default="afm" label="AFM field" description="PARAMSKROUTZEASYAFMFIELD" />
+		<param name="doy_field" type="text" default="doy" label="DOY field" description="PARAMSKROUTZEASYDOYFIELD" />
+		<param name="company_phone_field" type="text" default="company_phone" label="Company phone field" description="PARAMSKROUTZEASYCOMPANYPHONEFIELD" />
+		<param name="invoice_type_field" type="text" default="invoice_type" label="Invoice type field" description="PARAMSKROUTZEASYINVOICETYPEFIELD" />
+		<param name="invoice_type_retail_value" type="text" default="Retail" label="Invoice type retail value" description="PARAMSKROUTZEASYINVOICETYPEFIELDRETAILVALUE" />
+		<param name="invoice_type_invoice_value" type="text" default="Invoice" label="Invoice type invoice value" description="PARAMSKROUTZEASYINVOICETYPEFIELDINVOICEVALUE" />
+
+		<param name="site" type="text" default="https://www.skroutz.gr" />
+		<param name="authorization_url" type="text" default="/oauth2/authorizations/new" />
+		<param name="token_url" type="text" default="/oauth2/token" />
+		<param name="address_url" type="text" default="/oauth2/address" />
+	</params>
+
+	<!-- Listing of all files that should be installed for the component to function -->
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>skroutzeasy.php</filename>
+		<filename>index.html</filename>
+		<folder>views</folder>
+	</files>
+
+	<administration>
+		<!-- Administration Menu Section -->
+		<menu>Skroutz Easy</menu>
+		<!-- Administration Main File Copy Section -->
+		<!-- Note the folder attribute: This attribute describes the folder
+			to copy FROM in the package to install therefore files copied
+			in this section are copied from /admin/ in the package -->
+		<files folder="admin">
+			<!-- Admin Main File Copy Section -->
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>skroutzeasy.php</filename>
+			<folder>views</folder>
+		</files>
+	</administration>
+</install>

@@ -1,0 +1,10 @@
+.gitignore
+.git/*
+.idea/*
+.zipignore
+*.iml
+*.swp
+doc/*
+Makefile
+README.md
+LICENSE.txt

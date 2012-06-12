@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params>
+		<param name="client_id" type="text" default="" label="Client ID" description="PARAMSKROUTZEASYCLIENTID" />
+		<param name="client_secret" type="text" default="" label="Client Secret" description="PARAMSKROUTZEASYCLIENTSECRET" />
+		<param name="redirect_uri" type="text" default="" label="Redirect URI" description="PARAMSKROUTZEASYREDIRECTURI" />
+
+		<param type="spacer" />
+
+		<param name="company_field" type="text" default="" label="Company field" description="PARAMSKROUTZEASYCOMPANYFIELD" />
+		<param name="profession_field" type="text" default="" label="Profession field" description="PARAMSKROUTZEASYPROFESSIONFIELD" />
+		<param name="afm_field" type="text" default="" label="AFM field" description="PARAMSKROUTZEASYAFMFIELD" />
+		<param name="doy_field" type="text" default="" label="DOY field" description="PARAMSKROUTZEASYDOYFIELD" />
+		<param name="company_phone_field" default="" type="text" label="Company phone field" description="PARAMSKROUTZEASYCOMPANYPHONEFIELD" />
+		<param name="invoice_type_field" default="" type="text" label="Invoice type field" description="PARAMSKROUTZEASYINVOICETYPEFIELD" />
+		<param name="invoice_type_retail_value" type="text" default="" label="Invoice type retail value" description="PARAMSKROUTZEASYINVOICETYPEFIELDRETAILVALUE" />
+		<param name="invoice_type_invoice_value" type="text" default="" label="Invoice type invoice value" description="PARAMSKROUTZEASYINVOICETYPEFIELDINVOICEVALUE" />
+
+		<param type="spacer" />
+
+		<param name="site" type="text" default="https://www.skroutz.gr" />
+		<param name="authorization_url" type="text" default="/oauth2/authorizations/new" />
+		<param name="token_url" type="text" default="/oauth2/token" />
+		<param name="address_url" type="text" default="/oauth2/address" />
+	</params>
+</config>
