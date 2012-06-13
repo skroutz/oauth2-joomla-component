@@ -65,7 +65,7 @@ class SkroutzEasyController extends JController
 	 */
 	function callback()
 	{
-		$mainframe = JFactory::getApplication();
+		$mainframe =& JFactory::getApplication();
 
 		$code = JRequest::getString('code');
 		$error = JRequest::getString('error');
@@ -365,7 +365,7 @@ class SkroutzEasyController extends JController
 	 */
 	private function loginUser($data)
 	{
-		$mainframe = JFactory::getApplication();
+		$mainframe =& JFactory::getApplication();
 
 		// Username and password must be passed in an array
 		$credentials = array('username' => $data['username'], 'password' => $data['password']);
