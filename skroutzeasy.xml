@@ -29,9 +29,9 @@
 	<license>MIT - http://www.opensource.org/licenses/MIT</license>
 
 	<!--
-	<languages folder="languages">
-		<language tag="en-GB">en-GB.com_skroutzeasy.ini</language>
-		<language tag="el-GR">el-GR.com_skroutzeasy.ini</language>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.com_skroutzeasy.ini</language>
+		<language tag="el-GR">el-GR/el-GR.com_skroutzeasy.ini</language>
 	</languages>
 	-->
 
