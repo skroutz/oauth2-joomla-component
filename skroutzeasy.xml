@@ -35,6 +35,7 @@
 	</languages>
 	-->
 
+	<!-- Joomla 1.5.x -->
 	<params>
 		<param name="client_id" type="text" default="" label="Client ID" description="PARAMSKROUTZEASYCLIENTID" />
 		<param name="client_secret" type="text" default="" label="Client Secret" description="PARAMSKROUTZEASYCLIENTSECRET" />
@@ -55,6 +56,31 @@
 		<param name="address_url" type="text" default="/oauth2/address" />
 	</params>
 
+	<!-- Joomla 1.6.x & 2.5.x -->
+	<config>
+		<fields name="params">
+			<fieldset name="options">
+				<field name="client_id" type="text" default="" label="Client ID" description="PARAMSKROUTZEASYCLIENTID" />
+				<field name="client_secret" type="text" default="" label="Client Secret" description="PARAMSKROUTZEASYCLIENTSECRET" />
+				<field name="redirect_uri" type="text" default="" label="Redirect URI" description="PARAMSKROUTZEASYREDIRECTURI" />
+
+				<field name="company_field" type="text" default="company" label="Company field" description="PARAMSKROUTZEASYCOMPANYFIELD" />
+				<field name="profession_field" type="text" default="profession" label="Profession field" description="PARAMSKROUTZEASYPROFESSIONFIELD" />
+				<field name="afm_field" type="text" default="afm" label="AFM field" description="PARAMSKROUTZEASYAFMFIELD" />
+				<field name="doy_field" type="text" default="doy" label="DOY field" description="PARAMSKROUTZEASYDOYFIELD" />
+				<field name="company_phone_field" type="text" default="company_phone" label="Company phone field" description="PARAMSKROUTZEASYCOMPANYPHONEFIELD" />
+				<field name="invoice_type_field" type="text" default="invoice_type" label="Invoice type field" description="PARAMSKROUTZEASYINVOICETYPEFIELD" />
+				<field name="invoice_type_retail_value" type="text" default="Retail" label="Invoice type retail value" description="PARAMSKROUTZEASYINVOICETYPEFIELDRETAILVALUE" />
+				<field name="invoice_type_invoice_value" type="text" default="Invoice" label="Invoice type invoice value" description="PARAMSKROUTZEASYINVOICETYPEFIELDINVOICEVALUE" />
+
+				<field name="site" type="text" default="https://www.skroutz.gr" />
+				<field name="authorization_url" type="text" default="/oauth2/authorizations/new" />
+				<field name="token_url" type="text" default="/oauth2/token" />
+				<field name="address_url" type="text" default="/oauth2/address" />
+			</fieldset>
+		</fields>
+	</config>
+
 	<!-- Listing of all files that should be installed for the component to function -->
 	<files folder="site">
 		<filename>controller.php</filename>
@@ -65,7 +91,18 @@
 
 	<administration>
 		<!-- Administration Menu Section -->
-		<menu>Skroutz Easy</menu>
+		<menu>COM_SKROUTZEASY_MENU</menu>
+
+		<!-- Language files -->
+		<languages folder="admin/language">
+			<language tag="en-GB">en-GB/en-GB.com_skroutzeasy.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_skroutzeasy.sys.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_skroutzeasy.menu.ini</language>
+			<language tag="el-GR">el-GR/el-GR.com_skroutzeasy.ini</language>
+			<language tag="el-GR">el-GR/el-GR.com_skroutzeasy.sys.ini</language>
+			<language tag="el-GR">el-GR/el-GR.com_skroutzeasy.menu.ini</language>
+		</languages>
+
 		<!-- Administration Main File Copy Section -->
 		<!-- Note the folder attribute: This attribute describes the folder
 			to copy FROM in the package to install therefore files copied

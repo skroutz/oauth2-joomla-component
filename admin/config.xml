@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
+	<!-- Joomla 1.5.x -->
 	<params>
 		<param name="client_id" type="text" default="" label="Client ID" description="PARAMSKROUTZEASYCLIENTID" />
 		<param name="client_secret" type="text" default="" label="Client Secret" description="PARAMSKROUTZEASYCLIENTSECRET" />
@@ -23,4 +24,29 @@
 		<param name="token_url" type="text" default="/oauth2/token" />
 		<param name="address_url" type="text" default="/oauth2/address" />
 	</params>
+
+	<!-- Joomla 1.6.x & 2.5.x -->
+	<fieldset name="options" label="COM_SKROUTZEASY_FIELDSET_OPTIONS_LABEL">
+		<field name="client_id" type="text" default="" label="Client ID" description="PARAMSKROUTZEASYCLIENTID" />
+		<field name="client_secret" type="text" default="" label="Client Secret" description="PARAMSKROUTZEASYCLIENTSECRET" />
+		<field name="redirect_uri" type="text" default="" label="Redirect URI" description="PARAMSKROUTZEASYREDIRECTURI" />
+
+		<field type="spacer" />
+
+		<field name="company_field" type="text" default="" label="Company field" description="PARAMSKROUTZEASYCOMPANYFIELD" />
+		<field name="profession_field" type="text" default="" label="Profession field" description="PARAMSKROUTZEASYPROFESSIONFIELD" />
+		<field name="afm_field" type="text" default="" label="AFM field" description="PARAMSKROUTZEASYAFMFIELD" />
+		<field name="doy_field" type="text" default="" label="DOY field" description="PARAMSKROUTZEASYDOYFIELD" />
+		<field name="company_phone_field" default="" type="text" label="Company phone field" description="PARAMSKROUTZEASYCOMPANYPHONEFIELD" />
+		<field name="invoice_type_field" default="" type="text" label="Invoice type field" description="PARAMSKROUTZEASYINVOICETYPEFIELD" />
+		<field name="invoice_type_retail_value" type="text" default="" label="Invoice type retail value" description="PARAMSKROUTZEASYINVOICETYPEFIELDRETAILVALUE" />
+		<field name="invoice_type_invoice_value" type="text" default="" label="Invoice type invoice value" description="PARAMSKROUTZEASYINVOICETYPEFIELDINVOICEVALUE" />
+
+		<field type="spacer" />
+
+		<field name="site" type="text" default="https://www.skroutz.gr" />
+		<field name="authorization_url" type="text" default="/oauth2/authorizations/new" />
+		<field name="token_url" type="text" default="/oauth2/token" />
+		<field name="address_url" type="text" default="/oauth2/address" />
+	</fieldset>
 </config>
