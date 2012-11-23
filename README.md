@@ -6,9 +6,23 @@ Joomla v.1.5, v.1.6 and v.2.5 Skroutz Easy component
 ### Requirements
 
  - [Joomla! v.1.5, v.1.6 or v.2.5](http://www.joomla.org)
- - [VirtueMart 2.0.6](http://virtuemart.net)
+ - [VirtueMart 1.1.9 or 2.0.6](http://virtuemart.net)
 
-### Installation instructions
+> **NOTE**:
+
+> The Joomla Development Team **no longer provides support for Joomla 1.5** since April 2012.
+Also the VirtueMart Team, with the end of Joomla 1.5, has withdrawn support from VirtueMart 1.1 (last version was 1.1.9).
+
+> Although this compoment works with Joomla 1.5 and VirtueMart 1.1.9 we urge you to upgrade / migrate your installation
+to Joomla 2.5 and VirtueMart 2.0 in order to experience performance benefits, gain from the use of new features,
+while protecting your site from potential (undiscovered) security vulnerabilities.
+
+> While this compoment works with VirtueMart 1.1.9, support for this version of VirtueMart is limited.
+
+> You can find more info about [VirtueMart support on the VirtueMart forum]
+(http://forum.virtuemart.net/index.php?topic=109098.0).
+
+### Installation instructions for VirtueMart 2
 
 1. Install Joomla! and VirtueMart
 2. Login to the 'Administration' and install the 'Component'
@@ -59,9 +73,24 @@ Joomla v.1.5, v.1.6 and v.2.5 Skroutz Easy component
 ### Απαιτήσεις
 
  - [Joomla! v.1.5, v.1.6 or v.2.5](http://www.joomla.org)
- - [VirtueMart 2.0.6](http://virtuemart.net)
+ - [VirtueMart 1.1.9 or 2.0.6](http://virtuemart.net)
 
-### Οδηγίες εγκατάστασης
+> **ΣΗΜΕΙΩΣΗ**:
+
+> Η Ομάδα Ανάπτυξης του Joomla **σταμάτησε να υποστηρίζει το Joomla 1.5** από τον Απρίλιο 2012.
+Επίσης η Ομάδα του VirtueMart, με το τέλος του Joomla 1.5, έχει αποσύρει την υποστήριξή της για το VirtueMart 1.1
+(η τελευταία έκδοση ήταν η 1.1.9).
+
+> Παρόλο που αυτό το component λειτουργεί με το Joomla 1.5 και το VirtueMart 1.1.9 σας προτρέπουμε να αναβαθμίσετε /
+μεταφέρετε την εγκατάστασή σας σε Joomla 2.5 και VirtueMart 2.0 για να επωφεληθείτε από την καλύτερη απόδοση, να
+αξιοποιήσετε τα νέα χαρακτηριστικά, και παράλληλα να προστατεύσετε το site σας από πιθανά (άγνωστα) προβλήματα ασφαλείας.
+
+> Μολονότι αυτό το component λειτουργεί με το VirtueMart 1.1.9, η υποστήριξή για τη συγκεκριμένη έκδοση του VirtueMart είναι περιορισμένη.
+
+> Μπορείτε να βρείτε περισσότερες πληροφορίες για την [υποστήριξη του VirtueMart στo forum του VirtueMart]
+(http://forum.virtuemart.net/index.php?topic=109098.0).
+
+### Οδηγίες εγκατάστασης για VirtueMart 2
 
 1. Εγκαταστήστε το Joomla! και το VirtueMart
 2. Συνδεθείτε στο 'Administration' περιβάλλον και εγκαταστήστε το 'Component'
