@@ -160,8 +160,15 @@ class SkroutzEasyController extends JController
 		$data['address_2'] = "";
 		$data['zip'] = $json->zip;
 		$data['city'] = $json->city;
-		$data['virtuemart_country_id'] = $billing_state->virtuemart_country_id;
-		$data['virtuemart_state_id'] = $billing_state->virtuemart_state_id;
+
+		if ($this->isVmVersion("2.0")) {
+			$data['virtuemart_country_id'] = $billing_state->virtuemart_country_id;
+			$data['virtuemart_state_id'] = $billing_state->virtuemart_state_id;
+		} else if ($this->isVmVersion("1.1")) {
+			$data['country'] = $billing_state->country;
+			$data['state'] = $billing_state->state;
+		}
+
 		$data['phone_1'] = $json->phone;
 		$data['phone_2'] = $json->mobile;
 		$data['agreed'] = "1"; // Well, I guess everybody does!
@@ -192,8 +199,15 @@ class SkroutzEasyController extends JController
 			$data['shipto_address_2'] = "";
 			$data['shipto_zip'] = $json->shipping_address->zip;
 			$data['shipto_city'] = $json->shipping_address->city;
-			$data['shipto_virtuemart_country_id'] = $shipping_state->virtuemart_country_id;
-			$data['shipto_virtuemart_state_id'] = $shipping_state->virtuemart_state_id;
+
+			if ($this->isVmVersion("2.0")) {
+				$data['shipto_virtuemart_country_id'] = $shipping_state->virtuemart_country_id;
+				$data['shipto_virtuemart_state_id'] = $shipping_state->virtuemart_state_id;
+			} else if ($this->isVmVersion("1.1")) {
+				$data['shipto_country'] = $shipping_state->country;
+				$data['shipto_state'] = $shipping_state->state;
+			}
+
 			$data['shipto_phone_1'] = $json->shipping_address->phone;
 			$data['shipto_phone_2'] = $json->shipping_address->mobile;
 		}
