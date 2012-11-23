@@ -416,6 +416,25 @@ class SkroutzEasyController extends JController
 	 */
 	private function findUser($data)
 	{
+		if ($this->isVmVersion("2.0")) {
+			return $this->findUserVm2($data);
+		} else if ($this->isVmVersion("1.1")) {
+			return $this->findUserVm1($data);
+		}
+	}
+
+	/**
+	 * Finds a user given an array with a 'username' key
+	 *
+	 * This is the VirtueMart 2 version.
+	 *
+	 * @param $data
+	 *
+	 * @return mixed
+	 * @access private
+	 */
+	private function findUserVm2($data)
+	{
 		$currentUser = JFactory::getUser();
 
 		if ($currentUser->id != 0) {
@@ -441,6 +460,38 @@ class SkroutzEasyController extends JController
 			}
 
 			return false;
+		}
+	}
+
+	/**
+	 * Finds a user given an array with a 'username' key
+	 *
+	 * This is the VirtueMart 1.1 version.
+	 *
+	 * @param $data
+	 *
+	 * @return mixed
+	 * @access private
+	 */
+	private function findUserVm1($data)
+	{
+		$currentUser = JFactory::getUser();
+
+		if ($currentUser->id != 0) {
+			return $currentUser;
+		} else {
+			// Get the id of the user from the database
+			$userId = JUserHelper::getUserId($data['username']);
+
+			// Return false if not found
+			if ($userId == 0) {
+				return false;
+			}
+
+			$user =& JFactory::getUser();
+			$user->load($userId);
+
+			return $user;
 		}
 	}
 
