@@ -70,7 +70,6 @@ class SkroutzEasyController extends JController
 		$this->loadVm();
 
 		if ($code) {
-
 			// More info: http://docs.joomla.org/Component_parameters
 			// access $params and construct the redirect URL for authorization
 			$params = &JComponentHelper::getParams('com_skroutzeasy');
