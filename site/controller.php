@@ -646,9 +646,42 @@ class SkroutzEasyController extends JController
 	 * @access private
 	 */
 	private function saveToCart($data){
+		if ($this->isVmVersion("2.0")) {
+			return $this->saveToCartVm2($data);
+		} else if ($this->isVmVersion("1.1")) {
+			return $this->saveToCartVm1($data);
+		}
+	}
+
+	/**
+	 * Associates an address with a cart
+	 *
+	 * This is the VirtueMart 2 version.
+	 *
+	 * @param $data
+	 *
+	 * @access private
+	 */
+	private function saveToCartVm2($data){
 		if(!class_exists('VirtueMartCart')) require(JPATH_VM_SITE.DS.'helpers'.DS.'cart.php');
 		$cart = VirtueMartCart::getCart();
 		$cart->saveAddressInCart($data, $data['address_type']);
+	}
+
+	/**
+	 * Associates an address with a cart
+	 *
+	 * This is the VirtueMart 1.1 version.
+	 *
+	 * @param $data
+	 *
+	 * @access private
+	 */
+	private function saveToCartVm1($data){
+		// Load VirtueMart cart model
+		if (!class_exists('ps_cart')) require(CLASSPATH.'ps_cart.php');
+		$cartModel = new ps_cart();
+		$cartModel->saveCart();
 	}
 
 	/**
