@@ -541,6 +541,25 @@ class SkroutzEasyController extends JController
 	 */
 	private function updateUser($data)
 	{
+		if ($this->isVmVersion("2.0")) {
+			return $this->updateUserVm2($data);
+		} else if ($this->isVmVersion("1.1")) {
+			return $this->updateUserVm1($data);
+		}
+	}
+
+	/**
+	 * Updates user info
+	 *
+	 * This is the VirtueMart 2 version.
+	 *
+	 * Returns an array with the result
+	 *
+	 * @param $data
+	 * @return mixed
+	 */
+	private function updateUserVm2($data)
+	{
 		// Add a token to the request to bypass CSRF
 		JRequest::setVar(JUtility::getToken(), 1, 'post');
 
@@ -552,6 +571,46 @@ class SkroutzEasyController extends JController
 
 		// Association the address and the user with the cart
 		$this->saveToCart($data);
+		return $result;
+	}
+
+	/**
+	 * Updates user info
+	 *
+	 * This is the VirtueMart 1.1 version.
+	 *
+	 * Returns an array with the result
+	 *
+	 * @param $data
+	 * @return mixed
+	 */
+	private function updateUserVm1($data)
+	{
+		// Add a token to the request to bypass CSRF
+		JRequest::setVar(JUtility::getToken(), 1, 'post');
+
+		// Load VirtueMart shopper model
+		if (!class_exists('ps_shopper')) require(CLASSPATH.'ps_shopper.php');
+		$shopperModel = new ps_shopper();
+
+		// The shopper model checks only for POST data
+		$_POST = array_merge($_POST, $data);
+
+		// Update the shopper
+		$result = $shopperModel->update($data);
+
+		if (isset($data['shipping_address_type_name'])) {
+			// Load VirtueMart user address model
+			if (!class_exists('ps_user_address')) require(CLASSPATH.'ps_user_address.php');
+			$userAddressModel = new ps_user_address();
+
+			// Update the address
+			$userAddressModel->update($data);
+		}
+
+		// Associate the address and the user with the cart
+		$this->saveToCart($data);
+
 		return $result;
 	}
 
