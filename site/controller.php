@@ -528,7 +528,110 @@ class SkroutzEasyController extends JController
 		JRequest::setVar('name', $data['name'], 'post');
 		JRequest::setVar('email', $data['email'], 'post');
 
-		return $this->updateUser($data);
+		return $this->createUser($data);
+	}
+
+	/**
+	 * Creates a user
+	 *
+	 * @param $data
+	 *
+	 * @return string
+	 * @access private
+	 */
+	private function createUser($data)
+	{
+		if ($this->isVmVersion("2.0")) {
+			return $this->createUserVm2($data);
+		} else if ($this->isVmVersion("1.1")) {
+			return $this->createUserVm1($data);
+		}
+	}
+
+	/**
+	 * Creates a new user
+	 *
+	 * This is the VirtueMart 2 version.
+	 *
+	 * Returns an array with the result
+	 *
+	 * @param $data
+	 * @return mixed
+	 */
+	private function createUserVm2($data)
+	{
+		// VirtueMart2 handles the creation in #updateUser
+		return $this->updateUserVm2($data);
+	}
+
+	/**
+	 * Creates a new user
+	 *
+	 * This is the VirtueMart 1.1 version.
+	 *
+	 * Returns an array with the result
+	 *
+	 * @param $data
+	 * @return mixed
+	 */
+	private function createUserVm1($data)
+	{
+		// Will hack $auth if a shipping address was submitted
+		global $auth;
+
+		// Add a token to the request to bypass CSRF
+		JRequest::setVar(JUtility::getToken(), 1, 'post');
+
+		// Load VirtueMart shopper model
+		if (!class_exists('ps_shopper')) require(CLASSPATH.'ps_shopper.php');
+		$shopperModel = new ps_shopper();
+
+		// The shopper model checks only for POST data
+		$_POST = array_merge($_POST, $data);
+
+		// Create the user
+		$shopperModel->add($data);
+
+		// Find the newly created user
+		$user = $this->findUser($data);
+
+		if (isset($data['shipping_address_type_name'])) {
+			// Copy the address data
+			$shipping_address = $data;
+
+			// Filter out irrelevant values
+			$shipping_address = array_filter($shipping_address, function($item) use (&$shipping_address) {
+				$result = !strncmp(key($shipping_address), "shipping_", strlen("shipping_"));
+				next($shipping_address);
+				return $result;
+			});
+
+			// Strip the shipping prefix
+			foreach ($shipping_address as $key => $value) {
+				unset($shipping_address[$key]);
+				$new_key = str_replace("shipping_", "", $key);
+				$shipping_address[$new_key] = $value;
+			}
+
+			// Need to set the user_id in global $auth for the address to be valid
+			$auth["user_id"] = $user->id;
+
+			// Fullfil some validation requirements
+			$shipping_address["user_id"] = $_SESSION['auth']['user_id'] = $user->id;
+			$shipping_address["address_type"] = "ST";
+
+			// Load VirtueMart user address model
+			if (!class_exists('ps_user_address')) require(CLASSPATH.'ps_user_address.php');
+			$userAddressModel = new ps_user_address();
+
+			// Create the address
+			$userAddressModel->add($shipping_address);
+		}
+
+		// Associate the address and the user with the cart
+		$this->saveToCart($data);
+
+		return array("user" => $user, "message" => "");
 	}
 
 	/**
