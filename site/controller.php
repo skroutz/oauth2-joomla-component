@@ -188,28 +188,38 @@ class SkroutzEasyController extends JController
 			// Find the state
 			$shipping_state = $this->findState($data->shipping_address->region);
 
-			// Populate data
-			$data['shipto_address_type_name'] = 'Shipping Address';
-			$data['shipto_company'] = '';
-
-			$data['shipto_first_name'] = $json->shipping_address->first_name;
-			$data['shipto_middle_name'] = "";
-			$data['shipto_last_name'] = $json->shipping_address->last_name;
-			$data['shipto_address_1'] = $json->shipping_address->address;
-			$data['shipto_address_2'] = "";
-			$data['shipto_zip'] = $json->shipping_address->zip;
-			$data['shipto_city'] = $json->shipping_address->city;
-
+			// Set the correct prefix
 			if ($this->isVmVersion("2.0")) {
-				$data['shipto_virtuemart_country_id'] = $shipping_state->virtuemart_country_id;
-				$data['shipto_virtuemart_state_id'] = $shipping_state->virtuemart_state_id;
+				$shipping_prefix = 'shipto_';
 			} else if ($this->isVmVersion("1.1")) {
-				$data['shipto_country'] = $shipping_state->country;
-				$data['shipto_state'] = $shipping_state->state;
+				$shipping_prefix = 'shipping_';
+			} else {
+				// TODO: Support other VirtueMart versions
+				$shipping_prefix = '';
 			}
 
-			$data['shipto_phone_1'] = $json->shipping_address->phone;
-			$data['shipto_phone_2'] = $json->shipping_address->mobile;
+			// Populate data
+			$data[$shipping_prefix.'address_type_name'] = 'Shipping Address';
+			$data[$shipping_prefix.'company'] = '';
+
+			$data[$shipping_prefix.'first_name'] = $json->shipping_address->first_name;
+			$data[$shipping_prefix.'middle_name'] = "";
+			$data[$shipping_prefix.'last_name'] = $json->shipping_address->last_name;
+			$data[$shipping_prefix.'address_1'] = $json->shipping_address->address;
+			$data[$shipping_prefix.'address_2'] = "";
+			$data[$shipping_prefix.'zip'] = $json->shipping_address->zip;
+			$data[$shipping_prefix.'city'] = $json->shipping_address->city;
+
+			if ($this->isVmVersion("2.0")) {
+				$data[$shipping_prefix.'virtuemart_country_id'] = $shipping_state->virtuemart_country_id;
+				$data[$shipping_prefix.'virtuemart_state_id'] = $shipping_state->virtuemart_state_id;
+			} else if ($this->isVmVersion("1.1")) {
+				$data[$shipping_prefix.'country'] = $shipping_state->country;
+				$data[$shipping_prefix.'state'] = $shipping_state->state;
+			}
+
+			$data[$shipping_prefix.'phone_1'] = $json->shipping_address->phone;
+			$data[$shipping_prefix.'phone_2'] = $json->shipping_address->mobile;
 		}
 
 		// Return the data
