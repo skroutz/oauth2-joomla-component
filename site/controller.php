@@ -280,6 +280,8 @@ class SkroutzEasyController extends JController
 		}
 
 		vmWarn('Could not map region ' . $region);
+
+		return false;
 	}
 
 	/**
@@ -324,6 +326,7 @@ class SkroutzEasyController extends JController
 			}
 		}
 
+		return false;
 	}
 
 	/**
