@@ -454,8 +454,6 @@ class SkroutzEasyController extends JController
 			$userModel->_selectedOrdering = 'vmu.virtuemart_user_id';
 			$users = $userModel->getUserList();
 
-			//JRequest::setVar('search', null);
-
 			foreach ($users as $user) {
 				if ($user->username == $data['username']) {
 					return $user;
