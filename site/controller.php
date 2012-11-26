@@ -419,6 +419,12 @@ class SkroutzEasyController extends JController
 	 */
 	private function findUser($data)
 	{
+		$currentUser = JFactory::getUser();
+
+		if ($currentUser->id != 0) {
+			return $currentUser;
+		}
+
 		if ($this->isVmVersion("2.0")) {
 			return $this->findUserVm2($data);
 		} else if ($this->isVmVersion("1.1")) {
@@ -438,30 +444,24 @@ class SkroutzEasyController extends JController
 	 */
 	private function findUserVm2($data)
 	{
-		$currentUser = JFactory::getUser();
+		// This doesn't work on emails due to getWord() striping
+		// characters besides [A-Aa-z_].
+		//JRequest::setVar('search', $data['username'], 'get');
 
-		if ($currentUser->id != 0) {
-			return $currentUser;
-		} else {
-			// This doesn't work on emails due to getWord() striping
-			// characters besides [A-Aa-z_].
-			//JRequest::setVar('search', $data['username'], 'get');
+		$this->addModelPath(JPATH_VM_ADMINISTRATOR.DS.'models');
+		$userModel = VmModel::getModel('user');
 
-			$this->addModelPath(JPATH_VM_ADMINISTRATOR.DS.'models');
-			$userModel = VmModel::getModel('user');
+		// This is a done to bypass a bug in getUserList()
+		$userModel->_selectedOrdering = 'vmu.virtuemart_user_id';
+		$users = $userModel->getUserList();
 
-			// This is a done to bypass a bug in getUserList()
-			$userModel->_selectedOrdering = 'vmu.virtuemart_user_id';
-			$users = $userModel->getUserList();
-
-			foreach ($users as $user) {
-				if ($user->username == $data['username']) {
-					return $user;
-				}
+		foreach ($users as $user) {
+			if ($user->username == $data['username']) {
+				return $user;
 			}
-
-			return false;
 		}
+
+		return false;
 	}
 
 	/**
@@ -476,24 +476,18 @@ class SkroutzEasyController extends JController
 	 */
 	private function findUserVm1($data)
 	{
-		$currentUser = JFactory::getUser();
+		// Get the id of the user from the database
+		$userId = JUserHelper::getUserId($data['username']);
 
-		if ($currentUser->id != 0) {
-			return $currentUser;
-		} else {
-			// Get the id of the user from the database
-			$userId = JUserHelper::getUserId($data['username']);
-
-			// Return false if not found
-			if ($userId == 0) {
-				return false;
-			}
-
-			$user =& JFactory::getUser();
-			$user->load($userId);
-
-			return $user;
+		// Return false if not found
+		if ($userId == 0) {
+			return false;
 		}
+
+		$user =& JFactory::getUser();
+		$user->load($userId);
+
+		return $user;
 	}
 
 	/**
