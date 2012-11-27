@@ -11,9 +11,6 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 jimport('joomla.application.component.controller');
 
-// Load VirtueMart country and state models
-if (!class_exists('VmConfig')) require(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_virtuemart'.DS.'helpers'.DS.'config.php');
-
 class SkroutzEasyController extends JController
 {
 	/**
@@ -69,6 +66,9 @@ class SkroutzEasyController extends JController
 
 		$code = JRequest::getString('code');
 		$error = JRequest::getString('error');
+
+		// Load appropriate VM code
+		$this->loadVm();
 
 		if ($code) {
 
@@ -588,6 +588,14 @@ class SkroutzEasyController extends JController
 			return true;
 		} else {
 			return false;
+		}
+	}
+
+	private function loadVm() {
+		if ($this->isVmVersion("2.0")) {
+			if (!class_exists('VmConfig')) require(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_virtuemart'.DS.'helpers'.DS.'config.php');
+		} else if ($this->isVmVersion("1.1")) {
+			if (!defined('_VM_PARSER_LOADED')) require(JPATH_BASE.DS.'components'.DS.'com_virtuemart'.DS.'virtuemart_parser.php');
 		}
 	}
 }
