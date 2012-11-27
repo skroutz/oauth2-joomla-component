@@ -568,4 +568,26 @@ class SkroutzEasyController extends JController
 		// Return the result
 		return $result;
 	}
+
+	private function isVmVersion($version)
+	{
+		global $VMVERSION, $VIRTUEMART_VERSION;
+
+		if (!class_exists('vmVersion')) {
+			require(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_virtuemart'.DS.'version.php');
+
+			if (isset($VMVERSION)) {
+				$VIRTUEMART_VERSION = $VMVERSION->RELEASE;
+			} else {
+				$VMVERSION = new vmVersion();
+				$VIRTUEMART_VERSION = $VMVERSION::$RELEASE;
+			}
+		}
+
+		if (substr($VIRTUEMART_VERSION, 0, 3) == $version) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
