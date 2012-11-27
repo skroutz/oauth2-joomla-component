@@ -34,7 +34,6 @@ class SkroutzEasyController extends JController
 	}
 
 	/**
-
 	 * Redirect user for oAuth authorization
 	 *
 	 * @access public
@@ -204,7 +203,7 @@ class SkroutzEasyController extends JController
 	}
 
 	/**
-	 * Given a region this function tries to fetch the equivalent VmState
+	 * Given a region this function tries to fetch the state
 	 *
 	 * @param $region
 	 *
@@ -212,8 +211,27 @@ class SkroutzEasyController extends JController
 	 */
 	private function findState($region)
 	{
-		if(!class_exists('VirtueMartModelCountry')) require( JPATH_VM_ADMINISTRATOR.DS.'models'.DS.'country.php' );
-		if(!class_exists('VirtueMartModelState')) require( JPATH_VM_ADMINISTRATOR.DS.'models'.DS.'state.php' );
+		if ($this->isVmVersion("2.0")) {
+			return $this->findStateVm2($region);
+		} else if ($this->isVmVersion("1.1")) {
+			return $this->findStateVm1($region);
+		}
+	}
+
+	/**
+	 * Given a region this function tries to fetch the equivalent VmState
+	 *
+	 * This is the VirtueMart 2 version.
+	 *
+	 * @param $region
+	 *
+	 * @access private
+	 */
+	private function findStateVm2($region)
+	{
+		// Load VirtueMart country and state models
+		if (!class_exists('VirtueMartModelCountry')) require(JPATH_VM_ADMINISTRATOR.DS.'models'.DS.'country.php');
+		if (!class_exists('VirtueMartModelState')) require(JPATH_VM_ADMINISTRATOR.DS.'models'.DS.'state.php');
 
 		// Load countries
 		$countryModel = VmModel::getModel('country');
@@ -223,7 +241,7 @@ class SkroutzEasyController extends JController
 		// NOTE: Alternative but the (int) cast in getCountryByCode breaks this
 		//$country = $countryModel->getCountryByCode('GR');
 
-		// Load states
+		// Load states for this country
 		$stateModel = VmModel::getModel('state');
 		$states = $stateModel->getStates($country->virtuemart_country_id);
 
@@ -238,6 +256,50 @@ class SkroutzEasyController extends JController
 		}
 
 		vmWarn('Could not map region ' . $region);
+	}
+
+	/**
+	 * Given a region this function tries to fetch the equivalent state row
+	 *
+	 * This is the VirtueMart 1.1 version.
+	 *
+	 * @param $region
+	 *
+	 * @access private
+	 */
+	private function findStateVm1($region)
+	{
+		// Load VirtueMart country model
+		//
+		// Note: unfortunately there is no state model so we query the DB directly :(
+		if (!class_exists('ps_country')) require(CLASSPATH.'ps_country.php');
+
+		// Load countries
+		$countryModel = new ps_country();
+		// XXX: Hardcoded country
+		$country_code = "GRC";
+		$country = $countryModel->get_country_by_code($country_code);
+
+		// Load states for this country from the DB
+		$db = new ps_DB;
+		$q = 'SELECT state_name, state_2_code FROM #__{vm}_state s WHERE s.country_id='.$country->f("country_id");
+		$db->query($q);
+
+		// Normalize provided region
+		$region = $this->normalizeRegion($region);
+
+		// Return the state
+		while ($db->next_record()) {
+			if ($db->f("state_name") == $region) {
+				// Create an anonymous class
+				$state = new stdClass;
+				$state->country = $country_code;
+				$state->state = $db->f("state_2_code");
+
+				return $state;
+			}
+		}
+
 	}
 
 	/**
