@@ -172,7 +172,6 @@ class SkroutzEasyController extends JController
 		$data['phone_2'] = $json->mobile;
 		$data['agreed'] = "1"; // Well, I guess everybody does!
 		$data['address_type'] = 'BT';
-		$data[$params->get('invoice_type_field')] = $params->get('invoice_type_retail_value');
 
 		if ($json->invoice) {
 			$data[$params->get('company_field')] = $json->company;
@@ -181,6 +180,14 @@ class SkroutzEasyController extends JController
 			$data[$params->get('doy_field')] = $json->doy;
 			$data[$params->get('company_phone_field')] = $json->company_phone;
 			$date[$params->get('invoice_type_field')] = $params->get('invoice_type_invoice_value');
+		} else {
+			// Mark as empty all invoice related fields
+			$data[$params->get('company_field')] =
+				$data[$params->get('profession_field')] =
+				$data[$params->get('afm_field')] =
+				$data[$params->get('doy_field')] =
+				$data[$params->get('company_phone_field')] = '';
+			$data[$params->get('invoice_type_field')] = $params->get('invoice_type_retail_value');
 		}
 
 		if (isset($json->shipping_address)) {
