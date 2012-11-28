@@ -192,7 +192,7 @@ class SkroutzEasyController extends JController
 
 		if (isset($json->shipping_address)) {
 			// Find the state
-			$shipping_state = $this->findState($data->shipping_address->region);
+			$shipping_state = $this->findState($json->shipping_address->region);
 
 			// Set the correct prefix
 			if ($this->isVmVersion("2.0")) {
