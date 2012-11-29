@@ -170,6 +170,13 @@ class SkroutzEasyController extends JController
 
 		$data['phone_1'] = $json->phone;
 		$data['phone_2'] = $json->mobile;
+
+		// If phone_1 is empty, fill it with the value of phone_2
+		if (empty($data['phone_1'])) {
+			$data['phone_1'] = $data['phone_2'];
+			$data['phone_2'] = "";
+		}
+
 		$data['agreed'] = "1"; // Well, I guess everybody does!
 		$data['address_type'] = 'BT';
 
@@ -226,6 +233,12 @@ class SkroutzEasyController extends JController
 
 			$data[$shipping_prefix.'phone_1'] = $json->shipping_address->phone;
 			$data[$shipping_prefix.'phone_2'] = $json->shipping_address->mobile;
+
+			// If phone_1 is empty, fill it with the value of phone_2
+			if (empty($data[$shipping_prefix.'phone_1'])) {
+				$data[$shipping_prefix.'phone_1'] = $data[$shipping_prefix.'phone_2'];
+				$data[$shipping_prefix.'phone_2'] = "";
+			}
 		}
 
 		// Return the data
