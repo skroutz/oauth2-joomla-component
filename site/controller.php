@@ -186,7 +186,7 @@ class SkroutzEasyController extends JController
 			$data[$params->get('afm_field')] = $json->afm;
 			$data[$params->get('doy_field')] = $json->doy;
 			$data[$params->get('company_phone_field')] = $json->company_phone;
-			$date[$params->get('invoice_type_field')] = $params->get('invoice_type_invoice_value');
+			$data[$params->get('invoice_type_field')] = $params->get('invoice_type_invoice_value');
 		} else {
 			// Mark as empty all invoice related fields
 			$data[$params->get('company_field')] =
