@@ -13,11 +13,11 @@ Joomla v.1.5, v.1.6 and v.2.5 Skroutz Easy component
 > The Joomla Development Team **no longer provides support for Joomla 1.5** since April 2012.
 Also the VirtueMart Team, with the end of Joomla 1.5, has withdrawn support from VirtueMart 1.1 (last version was 1.1.9).
 
-> Although this compoment works with Joomla 1.5 and VirtueMart 1.1.9 we urge you to upgrade / migrate your installation
+> Although this component works with Joomla 1.5 and VirtueMart 1.1.9 we urge you to upgrade / migrate your installation
 to Joomla 2.5 and VirtueMart 2.0 in order to experience performance benefits, gain from the use of new features,
 while protecting your site from potential (undiscovered) security vulnerabilities.
 
-> While this compoment works with VirtueMart 1.1.9, support for this version of VirtueMart is limited.
+> While this component works with VirtueMart 1.1.9, support for this version of VirtueMart is limited.
 
 > You can find more info about [VirtueMart support on the VirtueMart forum]
 (http://forum.virtuemart.net/index.php?topic=109098.0).
