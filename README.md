@@ -24,15 +24,16 @@ while protecting your site from potential (undiscovered) security vulnerabilitie
 
 ### Installation instructions for VirtueMart 2
 
-1. Install Joomla! and VirtueMart
-2. Login to the 'Administration' and install the 'Component'
+1. Download the latest version of the component from [Releases][releases]
+2. Install Joomla! and VirtueMart
+3. Login to the 'Administration' and install the 'Component'
     - Select 'Install / Uninstall' from the 'Extensions' menu
     - Click 'Choose file' and select the extension (`com_skroutzeasy.zip`) from your HDD
     - Upload the file using 'Upload File & Install'
 
 ![Installing OAuth2 Joomla Component][oauth2-joomla-component-install]
 
-3. Configure the 'Component'
+4. Configure the 'Component'
     - Select the 'Skroutz Easy' component from the 'Component' menu
     - Click the 'Parameters' from the toolbar
     - Add the `client_id` in the 'Client ID' field
@@ -42,7 +43,7 @@ while protecting your site from potential (undiscovered) security vulnerabilitie
 
 ![Configuring OAuth2 Joomla Component][oauth2-joomla-component-configure]
 
-4. Add extra fields and update mappings (optional)
+5. Add extra fields and update mappings (optional)
     - Some fields like (IRS office, Taxpayer Identification Number, etc.) are
       not installed by default in a VirtueMart installation.
     - If you have to provide invoices you need to manually add these fields.
@@ -59,7 +60,7 @@ while protecting your site from potential (undiscovered) security vulnerabilitie
 
 ![Editing fields of OAuth2 Joomla Component][oauth2-joomla-component-newfield-edit]
 
-5. Further customization / development (optional)
+6. Further customization / development (optional)
     - In case your Joomla installation is highly customized or you
       have renamed the default columns you might need to edit
       `components/com_skroutzeasy/controller.php` in order to fix the mappings.
@@ -92,15 +93,16 @@ while protecting your site from potential (undiscovered) security vulnerabilitie
 
 ### Οδηγίες εγκατάστασης για VirtueMart 2
 
-1. Εγκαταστήστε το Joomla! και το VirtueMart
-2. Συνδεθείτε στο 'Administration' περιβάλλον και εγκαταστήστε το 'Component'
+1. Κατεβάστε την τελευταία έκδοση του component από τα [Releases][releases]
+2. Εγκαταστήστε το Joomla! και το VirtueMart
+3. Συνδεθείτε στο 'Administration' περιβάλλον και εγκαταστήστε το 'Component'
     - Επιλέξτε 'Install / Uninstall' από το μενού 'Extensions'
     - Επιλέξτε 'Choose file' και μετά διαλέξτε το extension (`com_skroutzeasy.zip`) από τον σκληρό δίσκο
     - Εγκαταστήστε το αρχείο επιλέγοντας 'Upload File & Install'
 
 ![Installing OAuth2 Joomla Component][oauth2-joomla-component-install]
 
-3. Παραμετροποιήστε το 'Component'
+4. Παραμετροποιήστε το 'Component'
     - Επιλέξτε το 'Skroutz Easy' component από το μενού 'Component'
     - Διαλέξτε τα 'Parameters' από τη μπάρα εργαλείων
     - Προσθέστε το `client_id` στο πεδίο 'Client ID'
@@ -110,7 +112,7 @@ while protecting your site from potential (undiscovered) security vulnerabilitie
 
 ![Configuring OAuth2 Joomla Component][oauth2-joomla-component-configure]
 
-4. Προσθέστε extra πεδία και ενημερώστε τις αντιστοιχίες (προεραιτικό)
+5. Προσθέστε extra πεδία και ενημερώστε τις αντιστοιχίες (προεραιτικό)
     - Μερικά πεδία όπως (ΔΟΥ, ΑΦΜ, κτλ.) δεν υπάρχουν στην αρχική εγκατάσταση του VirtueMart.
     - Αν θέλετε να μπορείτε να δώσετε παραστατικά θα πρέπει να προσθέσετε αυτά τα πεδία.
     - Επιλέξτε το 'VirtueMart' component από το μενού 'Component'
@@ -126,7 +128,7 @@ while protecting your site from potential (undiscovered) security vulnerabilitie
 
 ![Editing fields of OAuth2 Joomla Component][oauth2-joomla-component-newfield-edit]
 
-5. Περαιτέρω ρυθμίσεις / ανάπτυξη (προεραιτικό)
+6. Περαιτέρω ρυθμίσεις / ανάπτυξη (προεραιτικό)
     - Στην περίπτωση που η εγκατάσταση του Joomla είναι εξαιρετικά προσαρμοσμένη
       ή έχετε αλλάξει τα προεπιλεγμένα ονόματα στα πεδία ίσως χρειαστεί να αλλάξετε
       το αρχείο `components/com_skroutzeasy/controller.php` για να διορθώσετε τις
@@ -141,3 +143,4 @@ while protecting your site from potential (undiscovered) security vulnerabilitie
 [oauth2-joomla-component-configure]: /skroutz/oauth2-joomla-component/raw/master/doc/oauth2-joomla-component-configure.png "Configuring OAuth2 Joomla component"
 [oauth2-joomla-component-newfield]: /skroutz/oauth2-joomla-component/raw/master/doc/oauth2-joomla-component-newfield.png "Adding new field for OAuth2 Joomla component"
 [oauth2-joomla-component-newfield-edit]: /skroutz/oauth2-joomla-component/raw/master/doc/oauth2-joomla-component-newfield-edit.png "Editing fields of OAuth2 Joomla component"
+[releases]: https://github.com/skroutz/oauth2-joomla-component/releases
