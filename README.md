@@ -139,8 +139,8 @@ while protecting your site from potential (undiscovered) security vulnerabilitie
       να προσαρμόσετε τον κώδικα στα μέτρα και στις ανάγκες σας. Παρακαλούμε να
       μας αναφέρεται οτιδήποτε σφάλματα ανακαλύψετε.
 
-[oauth2-joomla-component-install]: /skroutz/oauth2-joomla-component/raw/master/doc/oauth2-joomla-component-install.png "Installing OAuth2 Joomla component"
-[oauth2-joomla-component-configure]: /skroutz/oauth2-joomla-component/raw/master/doc/oauth2-joomla-component-configure.png "Configuring OAuth2 Joomla component"
-[oauth2-joomla-component-newfield]: /skroutz/oauth2-joomla-component/raw/master/doc/oauth2-joomla-component-newfield.png "Adding new field for OAuth2 Joomla component"
-[oauth2-joomla-component-newfield-edit]: /skroutz/oauth2-joomla-component/raw/master/doc/oauth2-joomla-component-newfield-edit.png "Editing fields of OAuth2 Joomla component"
+[oauth2-joomla-component-install]: https://raw.github.com/skroutz/oauth2-joomla-component/master/doc/oauth2-joomla-component-newfield-edit.png "Installing OAuth2 Joomla component"
+[oauth2-joomla-component-configure]: https://raw.github.com/skroutz/oauth2-joomla-component/master/doc/oauth2-joomla-component-configure.png "Configuring OAuth2 Joomla component"
+[oauth2-joomla-component-newfield]: https://raw.github.com/skroutz/oauth2-joomla-component/master/doc/oauth2-joomla-component-newfield.png "Adding new field for OAuth2 Joomla component"
+[oauth2-joomla-component-newfield-edit]: https://raw.github.com/skroutz/oauth2-joomla-component/master/doc/oauth2-joomla-component-newfield-edit.png "Editing fields of OAuth2 Joomla component"
 [releases]: https://github.com/skroutz/oauth2-joomla-component/releases
