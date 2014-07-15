@@ -6,7 +6,7 @@ Joomla v.1.5, v.1.6 and v.2.5 Skroutz Easy component
 ### Requirements
 
  - [Joomla! v.1.5, v.1.6 or v.2.5](http://www.joomla.org)
- - [VirtueMart 1.1.9 or 2.0.26](http://virtuemart.net)
+ - [VirtueMart 1.1.9, 2.0.26 or 2.6.6](http://virtuemart.net)
 
 > **NOTE**:
 
@@ -74,7 +74,7 @@ while protecting your site from potential (undiscovered) security vulnerabilitie
 ### Απαιτήσεις
 
  - [Joomla! v.1.5, v.1.6 or v.2.5](http://www.joomla.org)
- - [VirtueMart 1.1.9 or 2.0.26](http://virtuemart.net)
+ - [VirtueMart 1.1.9, 2.0.26 or 2.6.6](http://virtuemart.net)
 
 > **ΣΗΜΕΙΩΣΗ**:
 
