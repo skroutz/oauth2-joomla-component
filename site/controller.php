@@ -160,7 +160,7 @@ class SkroutzEasyController extends JController
 		$data['zip'] = $json->zip;
 		$data['city'] = $json->city;
 
-		if ($this->isVmVersion("2.0")) {
+		if ($this->isVmVersion("2")) {
 			$data['virtuemart_country_id'] = $billing_state->virtuemart_country_id;
 			$data['virtuemart_state_id'] = $billing_state->virtuemart_state_id;
 		} else if ($this->isVmVersion("1.1")) {
@@ -202,7 +202,7 @@ class SkroutzEasyController extends JController
 			$shipping_state = $this->findState($json->shipping_address->region);
 
 			// Set the correct prefix
-			if ($this->isVmVersion("2.0")) {
+			if ($this->isVmVersion("2")) {
 				$shipping_prefix = 'shipto_';
 			} else if ($this->isVmVersion("1.1")) {
 				$shipping_prefix = 'shipping_';
@@ -223,7 +223,7 @@ class SkroutzEasyController extends JController
 			$data[$shipping_prefix.'zip'] = $json->shipping_address->zip;
 			$data[$shipping_prefix.'city'] = $json->shipping_address->city;
 
-			if ($this->isVmVersion("2.0")) {
+			if ($this->isVmVersion("2")) {
 				$data[$shipping_prefix.'virtuemart_country_id'] = $shipping_state->virtuemart_country_id;
 				$data[$shipping_prefix.'virtuemart_state_id'] = $shipping_state->virtuemart_state_id;
 			} else if ($this->isVmVersion("1.1")) {
@@ -254,7 +254,7 @@ class SkroutzEasyController extends JController
 	 */
 	private function findState($region)
 	{
-		if ($this->isVmVersion("2.0")) {
+		if ($this->isVmVersion("2")) {
 			return $this->findStateVm2($region);
 		} else if ($this->isVmVersion("1.1")) {
 			return $this->findStateVm1($region);
@@ -444,7 +444,7 @@ class SkroutzEasyController extends JController
 			return $currentUser;
 		}
 
-		if ($this->isVmVersion("2.0")) {
+		if ($this->isVmVersion("2")) {
 			return $this->findUserVm2($data);
 		} else if ($this->isVmVersion("1.1")) {
 			return $this->findUserVm1($data);
@@ -555,7 +555,7 @@ class SkroutzEasyController extends JController
 	 */
 	private function createUser($data)
 	{
-		if ($this->isVmVersion("2.0")) {
+		if ($this->isVmVersion("2")) {
 			return $this->createUserVm2($data);
 		} else if ($this->isVmVersion("1.1")) {
 			return $this->createUserVm1($data);
@@ -658,7 +658,7 @@ class SkroutzEasyController extends JController
 	 */
 	private function updateUser($data)
 	{
-		if ($this->isVmVersion("2.0")) {
+		if ($this->isVmVersion("2")) {
 			return $this->updateUserVm2($data);
 		} else if ($this->isVmVersion("1.1")) {
 			return $this->updateUserVm1($data);
@@ -763,7 +763,7 @@ class SkroutzEasyController extends JController
 	 * @access private
 	 */
 	private function saveToCart($data){
-		if ($this->isVmVersion("2.0")) {
+		if ($this->isVmVersion("2")) {
 			return $this->saveToCartVm2($data);
 		} else if ($this->isVmVersion("1.1")) {
 			return $this->saveToCartVm1($data);
@@ -938,7 +938,7 @@ class SkroutzEasyController extends JController
 	}
 
 	private function loadVm() {
-		if ($this->isVmVersion("2.0")) {
+		if ($this->isVmVersion("2")) {
 			if (!class_exists('VmConfig')) require(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_virtuemart'.DS.'helpers'.DS.'config.php');
 		} else if ($this->isVmVersion("1.1")) {
 			if (!defined('_VM_PARSER_LOADED')) require(JPATH_BASE.DS.'components'.DS.'com_virtuemart'.DS.'virtuemart_parser.php');
