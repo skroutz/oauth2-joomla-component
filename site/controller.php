@@ -930,7 +930,7 @@ class SkroutzEasyController extends JController
 			}
 		}
 
-		if (substr($VIRTUEMART_VERSION, 0, 3) == $version) {
+		if (substr($VIRTUEMART_VERSION, 0, strlen($version)) == $version) {
 			return true;
 		} else {
 			return false;
