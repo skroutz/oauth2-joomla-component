@@ -614,11 +614,8 @@ class SkroutzEasyController extends JController
 			$shipping_address = $data;
 
 			// Filter out irrelevant values
-			$shipping_address = array_filter($shipping_address, function($item) use (&$shipping_address) {
-				$result = !strncmp(key($shipping_address), "shipping_", strlen("shipping_"));
-				next($shipping_address);
-				return $result;
-			});
+			$valid_keys = array_filter(array_keys($shipping_address), array(new StringFilter('shipping_'), 'prefix'));
+			$shipping_address = array_intersect_key($shipping_address, array_flip($valid_keys));
 
 			// Strip the shipping prefix
 			foreach ($shipping_address as $key => $value) {
