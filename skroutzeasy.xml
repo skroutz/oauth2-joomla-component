@@ -85,6 +85,7 @@
 	<files folder="site">
 		<filename>controller.php</filename>
 		<filename>skroutzeasy.php</filename>
+		<filename>string_filter.php</filename>
 		<filename>index.html</filename>
 		<folder>views</folder>
 	</files>
