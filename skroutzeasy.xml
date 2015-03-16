@@ -16,11 +16,11 @@
 	<description>Faster checkouts with Skroutz Easy</description>
 
 	<!-- Component version number, recorded in the components table -->
-	<version>1.1.1</version>
+	<version>1.1.2</version>
 
 	<!-- Version Date of the Component -->
 	<!-- Original creation date. Recommended: YYYY-MM-DD -->
-	<creationDate>July 2014</creationDate>
+	<creationDate>March 2015</creationDate>
 
 	<!-- Copyright information -->
 	<copyright>Copyright (c) 2012 Skroutz.gr. All rights reserved.</copyright>
