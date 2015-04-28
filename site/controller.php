@@ -396,7 +396,7 @@ class SkroutzEasyController extends JController
 			'client_id'     => $params->get('client_id'),
 
 			'client_secret' => $params->get('client_secret'),
-			'redirect_uri'  => $params->get('redirect_uri') . $this->getCallbackPath(),
+			'redirect_uri'  => $this->getRedirectUri($params),
 			'grant_type'    => 'authorization_code'
 		);
 
@@ -814,9 +814,23 @@ class SkroutzEasyController extends JController
 		$url = $site . $authorization_url;
 
 		$client_id = urlencode($params->get('client_id'));
-		$redirect_uri = urlencode($params->get('redirect_uri') . $this->getCallbackPath());
+		$redirect_uri = urlencode($this->getRedirectUri($params));
 
 		return $url . "?client_id=" . $client_id . "&redirect_uri=" . $redirect_uri . "&response_type=code";
+	}
+
+	/**
+	 * Returns the redirect URL from the params or
+	 * tries to compute it from the component routes.
+	 *
+	 * @param $params
+	 *
+	 * @return string
+	 * @access private
+	 */
+	private function getRedirectUri($params)
+	{
+		return empty(trim($params->get('redirect_uri'))) ? $this->getCallbackPath() : $params->get('redirect_uri');
 	}
 
 	/**
