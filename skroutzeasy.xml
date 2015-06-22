@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<install type="component" version="1.5">
-	<!-- Name of the Component -->
+<extension type="component" version="3.4" method="upgrade">
 	<name>Skroutz Easy</name>
 
 	<!-- Name of the Author -->
@@ -28,55 +27,26 @@
 	<!-- License information -->
 	<license>MIT - http://www.opensource.org/licenses/MIT</license>
 
-	<!--
-	<languages folder="language">
-		<language tag="en-GB">en-GB/en-GB.com_skroutzeasy.ini</language>
-		<language tag="el-GR">el-GR/el-GR.com_skroutzeasy.ini</language>
-	</languages>
-	-->
-
-	<!-- Joomla 1.5.x -->
-	<params>
-		<param name="client_id" type="text" default="" label="Client ID" description="PARAMSKROUTZEASYCLIENTID" />
-		<param name="client_secret" type="text" default="" label="Client Secret" description="PARAMSKROUTZEASYCLIENTSECRET" />
-		<param name="redirect_uri" type="text" default="" label="Redirect URI" description="PARAMSKROUTZEASYREDIRECTURI" />
-
-		<param name="company_field" type="text" default="company" label="Company field" description="PARAMSKROUTZEASYCOMPANYFIELD" />
-		<param name="profession_field" type="text" default="profession" label="Profession field" description="PARAMSKROUTZEASYPROFESSIONFIELD" />
-		<param name="afm_field" type="text" default="afm" label="AFM field" description="PARAMSKROUTZEASYAFMFIELD" />
-		<param name="doy_field" type="text" default="doy" label="DOY field" description="PARAMSKROUTZEASYDOYFIELD" />
-		<param name="company_phone_field" type="text" default="company_phone" label="Company phone field" description="PARAMSKROUTZEASYCOMPANYPHONEFIELD" />
-		<param name="invoice_type_field" type="text" default="invoice_type" label="Invoice type field" description="PARAMSKROUTZEASYINVOICETYPEFIELD" />
-		<param name="invoice_type_retail_value" type="text" default="Retail" label="Invoice type retail value" description="PARAMSKROUTZEASYINVOICETYPEFIELDRETAILVALUE" />
-		<param name="invoice_type_invoice_value" type="text" default="Invoice" label="Invoice type invoice value" description="PARAMSKROUTZEASYINVOICETYPEFIELDINVOICEVALUE" />
-
-		<param name="site" type="text" default="https://www.skroutz.gr" />
-		<param name="authorization_url" type="text" default="/oauth2/authorizations/new" />
-		<param name="token_url" type="text" default="/oauth2/token" />
-		<param name="address_url" type="text" default="/oauth2/address" />
-	</params>
-
-	<!-- Joomla 1.6.x & 2.5.x -->
 	<config>
 		<fields name="params">
 			<fieldset name="options">
-				<field name="client_id" type="text" default="" label="Client ID" description="PARAMSKROUTZEASYCLIENTID" />
-				<field name="client_secret" type="text" default="" label="Client Secret" description="PARAMSKROUTZEASYCLIENTSECRET" />
-				<field name="redirect_uri" type="text" default="" label="Redirect URI" description="PARAMSKROUTZEASYREDIRECTURI" />
+				<field name="client_id" type="text" default="" label="COM_SKROUTZEASY_CLIENT_ID_LABEL" description="COM_SKROUTZEASY_CLIENT_ID_DESC" />
+				<field name="client_secret" type="text" default="" label="COM_SKROUTZEASY_CLIENT_SECRET_LABEL" description="COM_SKROUTZEASY_CLIENT_SECRET_DESC" />
+				<field name="redirect_uri" type="text" default="" label="COM_SKROUTZEASY_REDIRECT_URI_LABEL" description="COM_SKROUTZEASY_REDIRECT_URI_DESC" />
 
-				<field name="company_field" type="text" default="company" label="Company field" description="PARAMSKROUTZEASYCOMPANYFIELD" />
-				<field name="profession_field" type="text" default="profession" label="Profession field" description="PARAMSKROUTZEASYPROFESSIONFIELD" />
-				<field name="afm_field" type="text" default="afm" label="AFM field" description="PARAMSKROUTZEASYAFMFIELD" />
-				<field name="doy_field" type="text" default="doy" label="DOY field" description="PARAMSKROUTZEASYDOYFIELD" />
-				<field name="company_phone_field" type="text" default="company_phone" label="Company phone field" description="PARAMSKROUTZEASYCOMPANYPHONEFIELD" />
-				<field name="invoice_type_field" type="text" default="invoice_type" label="Invoice type field" description="PARAMSKROUTZEASYINVOICETYPEFIELD" />
-				<field name="invoice_type_retail_value" type="text" default="Retail" label="Invoice type retail value" description="PARAMSKROUTZEASYINVOICETYPEFIELDRETAILVALUE" />
-				<field name="invoice_type_invoice_value" type="text" default="Invoice" label="Invoice type invoice value" description="PARAMSKROUTZEASYINVOICETYPEFIELDINVOICEVALUE" />
+				<field name="company_field" type="text" default="company" label="COM_SKROUTZEASY_COMPANY_LABEL" description="COM_SKROUTZEASY_COMPANY_DESC" />
+				<field name="profession_field" type="text" default="profession" label="COM_SKROUTZEASY_PROFESSION_LABEL" description="COM_SKROUTZEASY_PROFESSION_DESC" />
+				<field name="afm_field" type="text" default="afm" label="COM_SKROUTZEASY_AFM_LABEL" description="COM_SKROUTZEASY_AFM_DESC" />
+				<field name="doy_field" type="text" default="doy" label="COM_SKROUTZEASY_DOY_LABEL" description="COM_SKROUTZEASY_DOY_DESC" />
+				<field name="company_phone_field" type="text" default="company_phone" label="COM_SKROUTZEASY_COMPANY_PHONE_LABEL" description="COM_SKROUTZEASY_COMPANY_PHONE_DESC" />
+				<field name="invoice_type_field" type="text" default="invoice_type" label="COM_SKROUTZEASY_INVOICE_TYPE_LABEL" description="COM_SKROUTZEASY_INVOICE_TYPE_DESC" />
+				<field name="invoice_type_retail_value" type="text" default="Retail" label="COM_SKROUTZEASY_INVOICE_TYPE_RETAIL_VALUE_LABEL" description="COM_SKROUTZEASY_INVOICE_TYPE_RETAIL_VALUE_DESC" />
+				<field name="invoice_type_invoice_value" type="text" default="Invoice" label="COM_SKROUTZEASY_INVOICE_TYPE_INVOICE_VALUE_LABEL" description="COM_SKROUTZEASY_INVOICE_TYPE_INVOICE_VALUE_DESC" />
 
-				<field name="site" type="text" default="https://www.skroutz.gr" />
-				<field name="authorization_url" type="text" default="/oauth2/authorizations/new" />
-				<field name="token_url" type="text" default="/oauth2/token" />
-				<field name="address_url" type="text" default="/oauth2/address" />
+				<field name="site" type="text" default="https://www.skroutz.gr" label="COM_SKROUTZEASY_SITE_LABEL" description="COM_SKROUTZEASY_SITE_DESC" />
+				<field name="authorization_url" type="text" default="/oauth2/authorizations/new" label="COM_SKROUTZEASY_AUTHORIZATION_URL_LABEL" description="COM_SKROUTZEASY_AUTHORIZATION_URL_DESC" />
+				<field name="token_url" type="text" default="/oauth2/token" label="COM_SKROUTZEASY_TOKEN_URL_LABEL" description="COM_SKROUTZEASY_TOKEN_URL_DESC" />
+				<field name="address_url" type="text" default="/oauth2/address" label="COM_SKROUTZEASY_ADDRESS_URL_LABEL" description="COM_SKROUTZEASY_ADDRESS_URL_DESC" />
 			</fieldset>
 		</fields>
 	</config>
@@ -117,4 +87,4 @@
 			<folder>views</folder>
 		</files>
 	</administration>
-</install>
+</extension>

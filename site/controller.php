@@ -1,6 +1,6 @@
 <?php
 /**
- * @package    SkroutzEasy component for Joomla 1.5.x and 1.6.x
+ * @package    SkroutzEasy component for Joomla 2.5.x and 3.x
  * @copyright  Copyright (c) 2012 Skroutz S.A. - http://www.skroutz.gr
  * @link       http://developers.skroutz.gr/oauth2
  * @license    MIT
@@ -11,7 +11,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 jimport('joomla.application.component.controller');
 
-class SkroutzEasyController extends JController
+class SkroutzEasyController extends JControllerLegacy
 {
 	/**
 	 * Default constructor
@@ -273,8 +273,8 @@ class SkroutzEasyController extends JController
 	private function findStateVm2($region)
 	{
 		// Load VirtueMart country and state models
-		if (!class_exists('VirtueMartModelCountry')) require(JPATH_VM_ADMINISTRATOR.DS.'models'.DS.'country.php');
-		if (!class_exists('VirtueMartModelState')) require(JPATH_VM_ADMINISTRATOR.DS.'models'.DS.'state.php');
+		if (!class_exists('VirtueMartModelCountry')) require(JPATH_VM_ADMINISTRATOR.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR.'country.php');
+		if (!class_exists('VirtueMartModelState')) require(JPATH_VM_ADMINISTRATOR.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR.'state.php');
 
 		// Load countries
 		$countryModel = VmModel::getModel('country');
@@ -467,7 +467,7 @@ class SkroutzEasyController extends JController
 		// characters besides [A-Aa-z_].
 		//JRequest::setVar('search', $data['username'], 'get');
 
-		$this->addModelPath(JPATH_VM_ADMINISTRATOR.DS.'models');
+		$this->addModelPath(JPATH_VM_ADMINISTRATOR.DIRECTORY_SEPARATOR.'models');
 		$userModel = VmModel::getModel('user');
 
 		// This is a done to bypass a bug in getUserList()
@@ -677,7 +677,7 @@ class SkroutzEasyController extends JController
 		// Add a token to the request to bypass CSRF
 		JRequest::setVar(JUtility::getToken(), 1, 'post');
 
-		$this->addModelPath(JPATH_VM_ADMINISTRATOR.DS.'models');
+		$this->addModelPath(JPATH_VM_ADMINISTRATOR.DIRECTORY_SEPARATOR.'models');
 		$userModel = VmModel::getModel('user');
 
 		// Store the data
@@ -777,7 +777,7 @@ class SkroutzEasyController extends JController
 	 * @access private
 	 */
 	private function saveToCartVm2($data){
-		if(!class_exists('VirtueMartCart')) require(JPATH_VM_SITE.DS.'helpers'.DS.'cart.php');
+		if(!class_exists('VirtueMartCart')) require(JPATH_VM_SITE.DIRECTORY_SEPARATOR.'helpers'.DIRECTORY_SEPARATOR.'cart.php');
 		$cart = VirtueMartCart::getCart();
 		$cart->saveAddressInCart($data, $data['address_type']);
 	}
@@ -931,7 +931,7 @@ class SkroutzEasyController extends JController
 		global $VMVERSION, $VIRTUEMART_VERSION;
 
 		if (!class_exists('vmVersion')) {
-			require(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_virtuemart'.DS.'version.php');
+			require(JPATH_ADMINISTRATOR.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_virtuemart'.DIRECTORY_SEPARATOR.'version.php');
 
 			if (isset($VMVERSION)) {
 				$VIRTUEMART_VERSION = $VMVERSION->RELEASE;
@@ -950,9 +950,9 @@ class SkroutzEasyController extends JController
 
 	private function loadVm() {
 		if ($this->isVmVersion("2")) {
-			if (!class_exists('VmConfig')) require(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_virtuemart'.DS.'helpers'.DS.'config.php');
+			if (!class_exists('VmConfig')) require(JPATH_ADMINISTRATOR.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_virtuemart'.DIRECTORY_SEPARATOR.'helpers'.DIRECTORY_SEPARATOR.'config.php');
 		} else if ($this->isVmVersion("1.1")) {
-			if (!defined('_VM_PARSER_LOADED')) require(JPATH_BASE.DS.'components'.DS.'com_virtuemart'.DS.'virtuemart_parser.php');
+			if (!defined('_VM_PARSER_LOADED')) require(JPATH_BASE.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_virtuemart'.DIRECTORY_SEPARATOR.'virtuemart_parser.php');
 		}
 	}
 }

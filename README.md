@@ -1,26 +1,72 @@
-Joomla v.1.5, v.1.6 and v.2.5 Skroutz Easy component
+Joomla v.2.5 and v.3.4 Skroutz Easy component
 ====================================================
 
 ## English
 
+This documentation is also available in: [Ελληνικά (Greek)](#greek)
+
 ### Requirements
 
- - [Joomla! v.1.5, v.1.6 or v.2.5](http://www.joomla.org)
- - [VirtueMart 1.1.9, 2.0.26 or 2.6.6](http://virtuemart.net)
+ - [Joomla! v2.5 or v3.4](http://www.joomla.org)
+ - [VirtueMart v2.6.6 or v3.0.9](http://virtuemart.net)
 
-> **NOTE**:
+#### Compatibility Matrix
 
-> The Joomla Development Team **no longer provides support for Joomla 1.5** since April 2012.
-Also the VirtueMart Team, with the end of Joomla 1.5, has withdrawn support from VirtueMart 1.1 (last version was 1.1.9).
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2" colspan="2"></th>
+      <th colspan="4">Joomla</th>
+    </tr>
+    <tr>
+      <th>1.5\*</th>
+      <th>1.6\*</th>
+      <th>2.5</th>
+      <th>3.4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4">VirtueMart</th>
+      <th>1.1.9\*</th>
+      <td><font color="green">YES</font></td>
+      <td><font color="green">YES</font></td>
+      <td><font color="red">NO</font></td>
+      <td><font color="red">NO</font></td>
+    </tr>
+    <tr>
+      <th>2.0.26\*</th>
+      <td><font color="red">NO</font></td>
+      <td><font color="red">NO</font></td>
+      <td><font color="green">YES</font></td>
+      <td><font color="red">NO</font></td>
+    </tr>
+    <tr>
+      <th>2.6.6</th>
+      <td><font color="red">NO</font></td>
+      <td><font color="red">NO</font></td>
+      <td><font color="green">YES</font></td>
+      <td><font color="red">NO</font></td>
+    </tr>
+    <tr>
+      <th>3.0.9</th>
+      <td><font color="red">NO</font></td>
+      <td><font color="red">NO</font></td>
+      <td><font color="green">YES</font></td>
+      <td><font color="green">YES</font></td>
+    </tr>
+  </tbody>
+</table>
 
-> Although this component works with Joomla 1.5 and VirtueMart 1.1.9 we urge you to upgrade / migrate your installation
-to Joomla 2.5 and VirtueMart 2.0 in order to experience performance benefits, gain from the use of new features,
-while protecting your site from potential (undiscovered) security vulnerabilities.
+Joomla 1.5 and 1.6 are [no longer supported](https://docs.joomla.org/Joomla!_CMS_versions).
 
-> While this component works with VirtueMart 1.1.9, support for this version of VirtueMart is limited.
+If you want a version of the component that works with older versions of
+Joomla and VirtueMart you should [use release v1.1.3](https://github.com/skroutz/oauth2-joomla-component/releases/tag/v1.1.3).
 
-> You can find more info about [VirtueMart support on the VirtueMart forum]
-(http://forum.virtuemart.net/index.php?topic=109098.0).
+Although version v1.1.3 works with Joomla 1.5 and VirtueMart 1.1.9 **we urge you to upgrade / migrate your installation**
+to at least Joomla 2.5 and VirtueMart 2.0 in order to experience performance benefits, gain from the use of new features,
+and protect your site from potential (undiscovered) security vulnerabilities.
+
 
 ### Installation instructions for VirtueMart 2
 
@@ -71,25 +117,69 @@ while protecting your site from potential (undiscovered) security vulnerabilitie
 
 ## Greek
 
+Αυτές οι οδηγίες είναι επίσης διαθέσιμες στα: [English (Αγγλικά)](#english)
+
 ### Απαιτήσεις
 
- - [Joomla! v.1.5, v.1.6 or v.2.5](http://www.joomla.org)
- - [VirtueMart 1.1.9, 2.0.26 or 2.6.6](http://virtuemart.net)
+ - [Joomla! v2.5 or v3.4](http://www.joomla.org)
+ - [VirtueMart v2.6.6 or v3.0.9](http://virtuemart.net)
 
-> **ΣΗΜΕΙΩΣΗ**:
+#### Πίνακας συμβατότητας
 
-> Η Ομάδα Ανάπτυξης του Joomla **σταμάτησε να υποστηρίζει το Joomla 1.5** από τον Απρίλιο 2012.
-Επίσης η Ομάδα του VirtueMart, με το τέλος του Joomla 1.5, έχει αποσύρει την υποστήριξή της για το VirtueMart 1.1
-(η τελευταία έκδοση ήταν η 1.1.9).
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2" colspan="2"></th>
+      <th colspan="4">Joomla</th>
+    </tr>
+    <tr>
+      <th>1.5\*</th>
+      <th>1.6\*</th>
+      <th>2.5</th>
+      <th>3.4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4">VirtueMart</th>
+      <th>1.1.9\*</th>
+      <td><font color="green">YES</font></td>
+      <td><font color="green">YES</font></td>
+      <td><font color="red">NO</font></td>
+      <td><font color="red">NO</font></td>
+    </tr>
+    <tr>
+      <th>2.0.26\*</th>
+      <td><font color="red">NO</font></td>
+      <td><font color="red">NO</font></td>
+      <td><font color="green">YES</font></td>
+      <td><font color="red">NO</font></td>
+    </tr>
+    <tr>
+      <th>2.6.6</th>
+      <td><font color="red">NO</font></td>
+      <td><font color="red">NO</font></td>
+      <td><font color="green">YES</font></td>
+      <td><font color="red">NO</font></td>
+    </tr>
+    <tr>
+      <th>3.0.9</th>
+      <td><font color="red">NO</font></td>
+      <td><font color="red">NO</font></td>
+      <td><font color="green">YES</font></td>
+      <td><font color="green">YES</font></td>
+    </tr>
+  </tbody>
+</table>
 
-> Παρόλο που αυτό το component λειτουργεί με το Joomla 1.5 και το VirtueMart 1.1.9 σας προτρέπουμε να αναβαθμίσετε /
-μεταφέρετε την εγκατάστασή σας σε Joomla 2.5 και VirtueMart 2.0 για να επωφεληθείτε από την καλύτερη απόδοση, να
+Οι εκδόσεις Joomla 1.5 και 1.6 [δεν υποστηρίζονται πλέον](https://docs.joomla.org/Joomla!_CMS_versions).
+
+Αν θέλετε μια έκδοση του component που δουλεύει με παλαιότερες εκδόσεις του Joomla και του VirtueMart,
+σας προτείνουμε να χρησιμοποιήσετε την [έκδοση v1.1.3](https://github.com/skroutz/oauth2-joomla-component/releases/tag/v1.1.3).
+
+Παρόλο που η έκδοση v1.1.3 λειτουργεί με το Joomla 1.5 και το VirtueMart 1.1.9 **σας προτρέπουμε να αναβαθμίσετε /
+μεταφέρετε την εγκατάστασή σας** σε Joomla 2.5 και VirtueMart 2.0 για να επωφεληθείτε από την καλύτερη απόδοση, να
 αξιοποιήσετε τα νέα χαρακτηριστικά, και παράλληλα να προστατεύσετε το site σας από πιθανά (άγνωστα) προβλήματα ασφαλείας.
-
-> Μολονότι αυτό το component λειτουργεί με το VirtueMart 1.1.9, η υποστήριξή για τη συγκεκριμένη έκδοση του VirtueMart είναι περιορισμένη.
-
-> Μπορείτε να βρείτε περισσότερες πληροφορίες για την [υποστήριξη του VirtueMart στo forum του VirtueMart]
-(http://forum.virtuemart.net/index.php?topic=109098.0).
 
 ### Οδηγίες εγκατάστασης για VirtueMart 2
 
