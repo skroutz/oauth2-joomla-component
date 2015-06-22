@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<install type="component" version="1.5">
-	<!-- Name of the Component -->
+<extension type="component" version="3.4" method="upgrade">
 	<name>Skroutz Easy</name>
 
 	<!-- Name of the Author -->
@@ -28,35 +27,6 @@
 	<!-- License information -->
 	<license>MIT - http://www.opensource.org/licenses/MIT</license>
 
-	<!--
-	<languages folder="language">
-		<language tag="en-GB">en-GB/en-GB.com_skroutzeasy.ini</language>
-		<language tag="el-GR">el-GR/el-GR.com_skroutzeasy.ini</language>
-	</languages>
-	-->
-
-	<!-- Joomla 1.5.x -->
-	<params>
-		<param name="client_id" type="text" default="" label="Client ID" description="PARAMSKROUTZEASYCLIENTID" />
-		<param name="client_secret" type="text" default="" label="Client Secret" description="PARAMSKROUTZEASYCLIENTSECRET" />
-		<param name="redirect_uri" type="text" default="" label="Redirect URI" description="PARAMSKROUTZEASYREDIRECTURI" />
-
-		<param name="company_field" type="text" default="company" label="Company field" description="PARAMSKROUTZEASYCOMPANYFIELD" />
-		<param name="profession_field" type="text" default="profession" label="Profession field" description="PARAMSKROUTZEASYPROFESSIONFIELD" />
-		<param name="afm_field" type="text" default="afm" label="AFM field" description="PARAMSKROUTZEASYAFMFIELD" />
-		<param name="doy_field" type="text" default="doy" label="DOY field" description="PARAMSKROUTZEASYDOYFIELD" />
-		<param name="company_phone_field" type="text" default="company_phone" label="Company phone field" description="PARAMSKROUTZEASYCOMPANYPHONEFIELD" />
-		<param name="invoice_type_field" type="text" default="invoice_type" label="Invoice type field" description="PARAMSKROUTZEASYINVOICETYPEFIELD" />
-		<param name="invoice_type_retail_value" type="text" default="Retail" label="Invoice type retail value" description="PARAMSKROUTZEASYINVOICETYPEFIELDRETAILVALUE" />
-		<param name="invoice_type_invoice_value" type="text" default="Invoice" label="Invoice type invoice value" description="PARAMSKROUTZEASYINVOICETYPEFIELDINVOICEVALUE" />
-
-		<param name="site" type="text" default="https://www.skroutz.gr" />
-		<param name="authorization_url" type="text" default="/oauth2/authorizations/new" />
-		<param name="token_url" type="text" default="/oauth2/token" />
-		<param name="address_url" type="text" default="/oauth2/address" />
-	</params>
-
-	<!-- Joomla 1.6.x & 2.5.x -->
 	<config>
 		<fields name="params">
 			<fieldset name="options">
@@ -117,4 +87,4 @@
 			<folder>views</folder>
 		</files>
 	</administration>
-</install>
+</extension>
