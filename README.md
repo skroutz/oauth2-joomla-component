@@ -1,3 +1,7 @@
+> **DISCLAIMER**:
+
+> Skroutz Easy is not supported anymore.
+
 Joomla v.1.5, v.1.6 and v.2.5 Skroutz Easy component
 ====================================================
 
